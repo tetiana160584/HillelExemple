@@ -14,7 +14,6 @@ public class BaseClass {
         driver = DriverFactory.greateDriver(WEBDRIVERS.BNIGARSIA);
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
     }
-
     @AfterClass
     public  void end() throws InterruptedException {
         Thread.sleep(6000);

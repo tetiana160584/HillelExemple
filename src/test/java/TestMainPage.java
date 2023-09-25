@@ -23,5 +23,4 @@ public class TestMainPage extends BaseClass {
 //        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("spinner"))); //перекрывается элемент поэтому ожидпние
     }
 
-
 }
