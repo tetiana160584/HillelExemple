@@ -22,8 +22,9 @@ public class TastSelectCourseParameteriz extends BaseClass {
     @BeforeClass
     public void openSite() {
         driver.get(mainUrl);
-        selectCourseParamPage = PageFactory.initElements(driver, SelectCourseParamPage.class);//инициализация page
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+//        selectCourseParamPage = PageFactory.initElements(driver, SelectCourseParamPage.class);//инициализация page
+        selectCourseParamPage = new SelectCourseParamPage(driver);//если подключен скрин элемента
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id=\"body\"]/div[1]/div[1]/div[1]/div/div/div[2]")));
     }
 
@@ -32,8 +33,8 @@ public class TastSelectCourseParameteriz extends BaseClass {
         Assert.assertTrue(selectCourseParamPage.openCourseList());
     }
 
-    @Test(dependsOnMethods = {"checkOpenCourseList"}, dataProviderClass = SelectCourseParamPage.class, dataProvider = "SelectCourseParamData")
-    public void testSelectCourseParam(String enterCourseVariable, List<String> listFilteredCourse) {
+    @Test(dependsOnMethods = {"checkOpenCourseList"}, dataProviderClass = SelectCourseParamData.class, dataProvider = "getSearchCourseVeriable")
+    public void testSelectCourseParam(String enterCourseVariable, List<String> listFilteredCourse) throws InterruptedException {
         Assert.assertEquals(selectCourseParamPage.getCourseNameByVarieble(enterCourseVariable), listFilteredCourse);
 
     }

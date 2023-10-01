@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class ScreenS {    //метод скрин во время ошибки
+public class ScreenS {    //метод скрин во время ошибки всей страницы
     static public void takeScreenShot(WebDriver driver, String fileName) {
         File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         String screenshotBase64 = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
